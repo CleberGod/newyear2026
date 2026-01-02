@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Metadados básicos -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS separado (boas práticas) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!--
+    Contêiner principal do "palco" da animação.
+    Tudo acontece dentro dele: canvas, hint e card.
+  -->
+  <div class="scene">
+
+    <!--
+      Canvas: onde desenhamos TUDO que é visual animado (estrelas, foguetes, explosões, confete).
+      Ele ocupa a tela inteira.
+    -->
+    <canvas id="fx" aria-label="Animação de fogos"></canvas>
+
+    <!--
+      Barra de dica: aparece no estado inicial (idle),
+      incentivando o clique para iniciar a contagem.
+    -->
+    <div class="hintbar" id="hint">
+      <span>clique para iniciar a contagem</span>
+    </div>
+
+    <!--
+      Card central: usado em dois momentos:
+      1) Durante a contagem regressiva (10..0)
+      2) Na mensagem final (Feliz 2026)
+      Observação: ele some ao zerar, e reaparece só na mensagem final.
+    -->
+    <div class="card" id="card" role="dialog" aria-live="polite">
+      <div class="title" id="cardTitle"></div>
+      <div class="msg" id="cardMsg">Prepare-se… ✨</div>
+      <div class="countdown" id="countdown">10</div>      
+      <!--<div class="small">(clique para reiniciar quando a mensagem final aparecer)</div>-->
+    </div>
+
+    <!-- Selo decorativo -->
+    <div class="badge">fogos ao fundo</div>
+  </div>
+
+  <!-- JavaScript separado (boas práticas) -->
+  <script src="script.js"></script>
+</body>
+</html>
